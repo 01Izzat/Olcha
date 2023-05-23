@@ -7,6 +7,7 @@
 
   let logoutBtn = document.querySelector('.logout')
   let elProducts = document.querySelector('.products')
+  let elSearchproducts = document.querySelector('.search__products')
 
   logoutBtn.addEventListener('click', (e) => {
     localStorage.removeItem('email')
@@ -74,3 +75,17 @@
     elProducts.insertAdjacentElement('beforeend', card)
     })
   }
+
+  function fetchNameproduct(evt) {
+    fetch(`https://api.escuelajs.co/api/v1/products/?title=${evt.target.value}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data.length > 0){
+        renderFun()
+        return;
+      }
+      elProducts.innerHTML = `<h1>Bunday ma'lumot topilmadi</h1>`
+    })
+  }
+  elSearchproducts.addEventListener('keyup', fetchNameproduct)
+  
