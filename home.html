@@ -10,6 +10,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./home.css">
     <title>Home</title>
   </head>
   <body>
@@ -76,6 +77,22 @@
 
     <main>
       <section>
+        <div class="content">
+          <div id="my-slider" se-min="0" se-step="10" se-min-value="0" se-max-value="1000" se-max="1000" class="slider">
+            <div class="slider-touch-left">
+              <span></span>
+            </div>
+            <div class="slider-touch-right">
+              <span></span>
+            </div>
+            <div class="slider-line">
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div id="result">Min: 0 Max: 1000</div>
+      </section>
+      <section>
         <div class="container">
           <div class="products d-flex flex-wrap justify-content-between"></div>
         </div>
@@ -87,5 +104,6 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"
   ></script>
+  <script src="./rangeInput.js"></script>
   <script src="./home.js"></script>
 </html>
