@@ -224,12 +224,12 @@ var ZBRangeSlider = function (id) {
 
 function fetchPriceProduct(min, max) {
   fetch(
-    `https://api.escuelajs.co/api/v1/products/?price=${min}&price_max=${max}&limit=20&offset=20`
+    `https://api.escuelajs.co/api/v1/products/?price_min=${min}&price_max=${max}&limit=20&offset=20`
   )
     .then((res) => res.json())
     .then((data) => {
       if (data.length > 0) {
-        renderFun();
+        renderFun(data);
         return;
       }
       elProducts.innerHTML = `<h1>Bunday narxdagi maxsulot topilmadi</h1>`;
@@ -239,6 +239,7 @@ function fetchPriceProduct(min, max) {
 // -------------------
 // How to use?
 var newRangeSlider = new ZBRangeSlider("my-slider");
+
 newRangeSlider.onChange = function (min, max) {
   fetchPriceProduct(min, max);
   document.getElementById("result").innerHTML = "Min: " + min + " Max: " + max;
